@@ -2,10 +2,10 @@
   "name": "nodeonawsproj",
   "version": "0.0.0",
   "private": true,
-  "main": "www",
+  "main": "www.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node www"
+    "start": "node www.js"
   },
   "dependencies": {
     "express": "~4.12.2",
