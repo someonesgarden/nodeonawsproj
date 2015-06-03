@@ -6,10 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debug = require('debug')('photoalbums');
 
-var routes = require('./routes/index_c.coffee');
-var users = require('./routes/users_c.coffee');
-var photos = require('./routes/photos_c.coffee');
-var albums = require('./routes/albums_c.coffee');
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var photos = require('./routes/photos');
+var albums = require('./routes/albums');
 var globals = require('./lib/globals');
 var mysql       = require('mysql');
 var app = express();
