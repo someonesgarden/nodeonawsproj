@@ -2,9 +2,10 @@
   "name": "nodeonawsproj",
   "version": "0.0.0",
   "private": true,
+  "main": "bin/www_c.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "coffee ./bin/www_c.coffee"
   },
   "dependencies": {
     "express": "~4.12.2",
