@@ -65,7 +65,7 @@ router.post('/logout', function(req, res) {
 });
 
 /* POST user registration. */
-router.post('/register', function(req, res) {
+router.get('/register', function(req, res) {
     if(req.param('username') && req.param('password') && req.param('email')){
         var email = unescape(req.param('email'));
         var emailMatch = email.match(/\S+@\S+\.\S+/);
