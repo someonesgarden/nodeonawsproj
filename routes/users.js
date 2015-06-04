@@ -4,8 +4,8 @@ var model 		= require('./../lib/model/model-users');
 
 
 /* GET user registration. */
-router.get('/getregister', function(req, res) {
-    if(req.param('username') && req.param('password') && req.param('email')){
+router.get('/register', function(req, res) {
+    if(req.param('username') || req.param('password') || req.param('email')){
         var email = unescape(req.param('email'));
         var emailMatch = email.match(/\S+@\S+\.\S+/);
         if (emailMatch !== null) {
