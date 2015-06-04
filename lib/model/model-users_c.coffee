@@ -1,6 +1,6 @@
 mysql       = require 'mysql'
 globals 	  = require './../globals'
-connection 	= mysql.createConnection globals.database
+connection 	= mysql.createConnection globals.database()
 
 getAllUsers=(callback)->
   query='SELECT username, userID FROM users'
