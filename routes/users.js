@@ -2,8 +2,9 @@ var express 	= require('express');
 var router 		= express.Router();
 var model 		= require('./../lib/model/model-users');
 
+
 /* GET user registration. */
-router.get('/register', function(req, res) {
+router.get('/getregister', function(req, res) {
     if(req.param('username') && req.param('password') && req.param('email')){
         var email = unescape(req.param('email'));
         var emailMatch = email.match(/\S+@\S+\.\S+/);
