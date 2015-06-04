@@ -2,7 +2,6 @@ var express 	= require('express');
 var router 		= express.Router();
 var model 		= require('./../lib/model/model-users');
 
-
 /* GET user registration. */
 router.get('/register', function(req, res) {
     if(req.param('username') && req.param('password') && req.param('email')){
@@ -29,7 +28,6 @@ router.get('/register', function(req, res) {
         res.status(400).send({error: 'Missing required field'});
     }
 });
-
 
 /* GET users listing. */
 router.get('/', function(req, res) {
