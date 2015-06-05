@@ -15,7 +15,6 @@ router.get('/', function(req, res) {
     })
 });
 
-
 /* GET albums by user */
 router.get('/user/:user', function(req, res) {
     res.header('Cache-Control','no-cache, no-store');

@@ -24,6 +24,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(multer({dest:'./tmp/'}));////追加
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
