@@ -2,7 +2,6 @@ var express 	= require('express');
 var router 		= express.Router();
 var model 		= require('./../lib/model/model-users');
 
-
 /* GET users listing. */
 router.get('/', function(req, res) {
     res.header('Cache-Control','no-cache, no-store');
@@ -32,8 +31,9 @@ router.get('/user/:user', function(req, res) {
 
 /* GET user registration. */
 router.get('/register', function(req, res) {
-    res.header("Cache-Control","public,max-age=10");
-    res.header("Expires",new Date(Date.now()+10000).toUTCString());
+    res.header('Cache-Control','no-cache, no-store');
+    //res.header("Cache-Control","public,max-age=10");
+    //res.header("Expires",new Date(Date.now()+10000).toUTCString());
     if(req.param('username') && req.param('password') && req.param('email')){
         var email = unescape(req.param('email'));
         var emailMatch = email.match(/\S+@\S+\.\S+/);

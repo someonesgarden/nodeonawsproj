@@ -1,6 +1,8 @@
 var express = require('express');
-var router = express.Router();
-var model = require('./../lib/model/model-photos');
+var router  = express.Router();
+var model   = require('./../lib/model/model-photos');
+var globals = require('./../lib/globals');
+var fs      = require('fs');
 
 /* GET photo by ID */
 router.get('/id/:id', function (req, res) {
@@ -43,6 +45,7 @@ router.get('/search', function (req, res) {
 });
 
 /* POST create photo. */
+/*
 router.post('/upload', function (req, res) {
     res.header('Cache-Control','no-cache, no-store');
     if (req.param('albumID') && req.param('userID')) {
@@ -65,6 +68,30 @@ router.post('/upload', function (req, res) {
         res.status(400).send({error: 'Invalid photo data'});
     }
 });
+*/
+router.post('/upload', function (req, res) {
+    res.header('Cache-Control','no-cache, no-store');
+    if (req.param('albumID') && req.param('userID')) {
+        var params = {
+            userID: req.param('userID'),
+            albumID: req.param('albumID')
+        }
+        if (req.param('caption')) {
+            params.caption = req.param('caption');
+        }
+
+        model.createPhoto(params, function (err, obj) {
+            if (err) {
+                res.status(400).send({error: 'Invalid photo data'});
+            } else {
+                res.send(obj);
+            }
+        });
+    } else {
+        res.status(400).send({error: 'Invalid photo data'});
+    }
+});
+
 
 /* POST delete photo. */
 router.post('/delete', function (req, res) {
