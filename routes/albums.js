@@ -25,6 +25,7 @@ router.get('/id/:albumID', function(req, res) {
 
 /* POST create album. */
 router.post('/upload', function(req, res) {
+    res.header('Cache-Control','no-cache, no-store');
  	if(req.param('title') && req.param('userID')){
  		var params = {
  			userID 		: req.param('userID'),
@@ -44,6 +45,7 @@ router.post('/upload', function(req, res) {
 
 /* POST delete album. */
 router.post('/delete', function(req, res) {
+    res.header('Cache-Control','no-cache, no-store');
 	if(req.param('albumID')){
 		var params = {
 			albumID : req.param('albumID')
@@ -59,7 +61,5 @@ router.post('/delete', function(req, res) {
 		res.status(400).send({error: 'Invalid album ID'});		
 	}
 });
-
-
 
 module.exports = router;

@@ -5,6 +5,7 @@ var model 		= require('./../lib/model/model-users');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     model.getAllUsers(function(err, obj){
         if(err){
             res.status(500).send({error: 'An unknown server error has occurred!'});
@@ -17,6 +18,7 @@ router.get('/', function(req, res) {
 
 /* GET albums by user */
 router.get('/user/:user', function(req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     var params= {
         username: req.param('user')
     }
@@ -61,6 +63,7 @@ router.get('/register', function(req, res) {
 
 /* POST user login. */
 router.post('/login', function(req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     if(req.param('username') && req.param('password') ){
         console.log("logiN");
         var params = {
@@ -82,6 +85,7 @@ router.post('/login', function(req, res) {
 
 /* POST user logout. */
 router.post('/logout', function(req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     if(req.param('userID')){
         model.logoutUser({}, function(err, obj){
             if(err){
@@ -98,6 +102,7 @@ router.post('/logout', function(req, res) {
 
 /* POST user registration. */
 router.post('/register', function(req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     if(req.param('username') && req.param('password') && req.param('email')){
         var email = unescape(req.param('email'));
         var emailMatch = email.match(/\S+@\S+\.\S+/);

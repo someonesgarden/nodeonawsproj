@@ -1,18 +1,19 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var express      = require('express');
+var path         = require('path');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var debug = require('debug')('photoalbums');
+var bodyParser   = require('body-parser');
+var multer       = require('multer');
+var debug        = require('debug')('photoalbums');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var photos = require('./routes/photos');
-var albums = require('./routes/albums');
-var globals = require('./lib/globals');
-var mysql       = require('mysql');
-var app = express();
+var routes       = require('./routes/index');
+var users        = require('./routes/users');
+var photos       = require('./routes/photos');
+var albums       = require('./routes/albums');
+var globals      = require('./lib/globals');
+var mysql        = require('mysql');
+var app          = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

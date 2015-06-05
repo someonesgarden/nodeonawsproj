@@ -4,6 +4,7 @@ var model = require('./../lib/model/model-photos');
 
 /* GET photo by ID */
 router.get('/id/:id', function (req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     if (req.param('id')) {
         var params = {
             photoID: req.param('id')
@@ -43,6 +44,7 @@ router.get('/search', function (req, res) {
 
 /* POST create photo. */
 router.post('/upload', function (req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     if (req.param('albumID') && req.param('userID')) {
         var params = {
             userID: req.param('userID'),
@@ -66,6 +68,7 @@ router.post('/upload', function (req, res) {
 
 /* POST delete photo. */
 router.post('/delete', function (req, res) {
+    res.header('Cache-Control','no-cache, no-store');
     if (req.param('id')) {
         var params = {
             photoID: req.param('id')
