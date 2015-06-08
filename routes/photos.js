@@ -88,19 +88,16 @@ router.post('/upload', function (req, res) {
 
                 uploadPhoto(params, function (err, fileObject) {
                     if (err) {
-                        console.log(err.message);
                         res.status(400).send({error: 'Invalid photo data:1'});
-                        console.log("invalid photo data:1");
                     } else {
                         params.url = fileObject.url;
                         delete params.filePath;
                         delete params.newFilename;
                         model.createPhoto(params, function (err, obj) {
                             if (err) {
-                                console.log(err.message);
                                 res.status(400).send({error: 'Invalid photo data:2'});
                             } else {
-                                res.send(obj);
+                                //res.send(obj);
                             }
                         });
                     }
@@ -190,11 +187,7 @@ function putS3Object(uploadData, callback) {
 
    // var AWS = require('aws-sdk');
    // AWS.config.region = 'us-east-1';
-    var s3 = new aws.S3({
-        accessKeyId:     'AKIAJHNQ3NCHWHDJ7UAA',
-        secretAccessKey: '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',
-        s3_endpoint: "s3-ap-northeast-1.amazonaws.com"
-    });
+    var s3 = new aws.S3();
 
     //var s3 = new aws.S3();
     s3.putObject(uploadData, function (err, data) {
