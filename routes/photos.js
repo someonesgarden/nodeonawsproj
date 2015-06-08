@@ -174,22 +174,22 @@ function uploadPhoto(params, callback){
 //追加
 function putS3Object(uploadData, callback) {
     var aws = require('aws-sdk');
-   // aws.config.region = 's3-ap-northeast-1.amazonaws.com';
     if (globals.awsVariables().key) {
         aws.config.update({
             accessKeyId: globals.awsVariables().key,
-            secretAccessKey: globals.awsVariables().secret,
-            s3_endpoint: "s3-ap-northeast-1.amazonaws.com"
+            secretAccessKey: globals.awsVariables().secret
         });
     }
-    console.log("uploadData");
-    console.log(uploadData);
 
-   // var AWS = require('aws-sdk');
-   // AWS.config.region = 'us-east-1';
+    /*
+    var s3 = new aws.S3({
+        accessKeyId:     'AKIAJHNQ3NCHWHDJ7UAA',
+        secretAccessKey: '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',
+        s3_endpoint: "s3-ap-northeast-1.amazonaws.com"
+    });
+    */
+
     var s3 = new aws.S3();
-
-    //var s3 = new aws.S3();
     s3.putObject(uploadData, function (err, data) {
         if (err) {
             console.log(err.message);
