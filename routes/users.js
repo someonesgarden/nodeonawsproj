@@ -1,6 +1,7 @@
 var express 	= require('express');
 var router 		= express.Router();
 var model 		= require('./../lib/model/model-users');
+var mail        = require('./../lib/mail');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
@@ -48,7 +49,15 @@ router.get('/register', function(req, res) {
                 if(err){
                     res.status(400).send({error: 'Unable to register'});
                 } else {
-                    res.send(obj);
+
+                    mail.sendRegistrationConfirmation({username:req.param('username'),email:req.param('email')},function(errMail,objMail){
+                       if(errMail){
+                           res.status(400).send(errMail);
+                       } else{
+                           res.send(obj);
+                       }
+                    });
+
                 }
             });
         } else {
