@@ -97,21 +97,13 @@ router.post('/upload', function (req, res) {
                             if (err) {
                                 res.status(400).send({error: 'Invalid photo data:2'});
                             } else {
-                                //res.send(obj);
+                                res.send(obj);
                             }
                         });
                     }
                 });
             } else {
                 res.status(400).send({error: 'Invalid photo data:3'});
-            }
-        })
-
-        model.createPhoto(params, function (err, obj) {
-            if (err) {
-                res.status(400).send({error: 'Invalid photo data'});
-            } else {
-                res.send(obj);
             }
         });
     } else {
