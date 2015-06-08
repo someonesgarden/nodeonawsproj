@@ -70,7 +70,7 @@ router.post('/upload', function (req, res) {
 });
 */
 router.post('/upload', function (req, res) {
-    //res.header('Cache-Control', 'no-cache, no-store');
+    res.header('Cache-Control', 'no-cache, no-store');
     if (req.param('albumID') && req.param('userID') && req.files.photo) {
         var params = {
             userID: req.param('userID'),
