@@ -54,7 +54,7 @@ router.get('/register', function(req, res) {
                        if(errMail){
                            res.status(400).send(errMail);
                        } else{
-                           res.send(obj);
+                           res.send(objMail);
                        }
                     });
 

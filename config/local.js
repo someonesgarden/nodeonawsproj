@@ -10,6 +10,6 @@ module.exports = {
         bucket:'1photoalbums.funwithdata.org',
         key:'AKIAJHNQ3NCHWHDJ7UAA',
         secret:'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',
-        domain:'http://www.funwithdata.org'
+        domain:'http://www.someonesgarden.org'
     }
 }
